@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Welcome to the student behavior application</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="author" content="David Renne"/>
+		<meta name="revisit-after" content="15 days"/>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.0/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easytabs.js"></script>
+		<script type="text/javascript" src="js/jspdf.js"></script>
+		<script type="text/javascript" src="js/core.students.js"></script>
+		<script type="text/javascript">
+			var BehaviorDB;
+			var Categories;
+			var CategoriesDescr;
+			var UndoBehaviors;
+			var BehaviorDate = new Date();
+			$(document).ready(
+				function ()
+				{
+					InitStudentBehaviorApplication();
+					InitButtons();
+					$('#tab-container').easytabs();
+					Categories       = new Array();
+					CategoriesDescr  = new Array();
+					UndoBehaviors    = new Array();
+					$("#BehaviorDate").html(BehaviorDate.toDateString());
+				}
+			);
+		</script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+		<link href="css/index.css" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+
+		<!--OUTER_CONTAINER-->
+		<div id="tab-container" class="tab-container">
+			<ul class='etabs'>
+				<li class='tab'><a href="#tabs-students">Students</a></li>
+				<li class='tab'><a href="#tabs-categories">Categories</a></li>
+				<li class='tab'><a href="#tabs-behaviors">Behaviors</a></li>
+			</ul>
+
+			<!--STUDENTS-->
+			<div id="tabs-students" class="inner-container">
+				<br/>
+				<table>
+					<tr>
+						<td>Student Name:</td>
+						<td><input type="text" id="txtStudentName"/></td>
+						<td><input type="button" onclick="AddNewStudent()" value="Add Student"/></td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<ul id="ulStudents" class="student-ul"></ul>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3"><input type="button" onclick="TruncateData();" title="Clear All Data" value="Remove all Students"/></td>
+					</tr>
+				</table>
+			</div>
+
+			<!--BEHAVIORS-->
+			<div id="tabs-behaviors" class="inner-container">
+				<br/>
+				<table>
+					<tr>
+						<td>Date:</td>
+						<td><img onclick="GoToPrevDate()" src="images/arrowleft.jpg"  class="button-hand"  alt=""></td>
+						<td class="date-box" id="BehaviorDate">12/4</td>
+						<td><img onclick="GoToNextDate()" src="images/arrowright.jpg" class="button-hand" alt=""></td>
+				  </tr>
+				</table>
+
+				<div id="divBehaviors"></div>
+
+				<div class="button-box">
+					<input type="button" onclick="ClearBehaviorByDate()"       value="Clear Behaviors" />
+					<input type="button" onclick="UndoBehavior()"              value="Undo Behaviors" />
+					<input type="button" onclick="OutputPDFReportBehaviors();" value="Print Report"/>
+				</div>
+			</div>
+
+			<!--CATEGORIES-->
+			<div id="tabs-categories" class="inner-container">
+				<br/>
+				<table>
+					<tr>
+						<td>Behavior Cateogory:</td>
+						<td><input type="text" id="txtBehaviorCategory"/></td>
+						<td><input type="button" onclick="AddNewCategory()" value="Add Category"/></td>
+					</tr>
+
+					<tr>
+						<td colspan="3">
+							<ul id="ulBehaviorCategories" class="student-ul"></ul>
+						</td>
+					</tr>
+
+					<tr>
+						<td colspan="3"><input type="button" onclick="ClearCategories();" title="Clear All Data" value="Remove all Categories"/></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

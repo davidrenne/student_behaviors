@@ -1,0 +1,16 @@
+.etabs { margin: 0; padding: 0; }
+.tab { display: inline-block; zoom:1; *display:inline; background: #eee; border: solid 1px #999; border-bottom: none; -moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; }
+.tab a { font-size: 14px; line-height: 2em; display: block; padding: 0 10px; outline: none; }
+.tab a:hover { text-decoration: underline; }
+.tab.active { background: #fff; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+.tab a.active { font-weight: bold; }
+.tab-container .panel-container { background: #fff; border: solid #666 1px; padding: 10px; -moz-border-radius: 0 4px 4px 4px; -webkit-border-radius: 0 4px 4px 4px; }
+.student-ul {z-index:1;list-style: none;padding-left:0px;border: none;}
+.row{margin-bottom:5px;background-color: #F2E8F0;}
+.inner-container {width: 35%;border: 1px black solid;padding: 19px;padding-left: 24px;padding-top: 3px;-moz-border-radius: 0px 4px 4px 4px;-webkit-border-radius: 0px 4px 4px 4px;}
+.button-hand {cursor:pointer; width:20px;height:20px;}
+.button-box {padding-top: 20px;}
+.date-box {width:150px; text-align:center;}
+.box-main {padding:10px;BORDER-RIGHT: black solid; BORDER-TOP: black solid; BORDER-LEFT: black solid; BORDER-BOTTOM: black solid;}
+.ui-widget {font-size: 12px !important;}
+input[type=text]{-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
